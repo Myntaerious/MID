@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+   <title>as-mid</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="assets/stylesheets/w3.css">
+   <link rel="stylesheet" href="assets/fonts/fonts.css">
+   <script src="https://kit.fontawesome.com/d56031a864.js" crossorigin="anonymous"></script>
+   <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+    .container-padding{
+      padding: 128px 16px;
+    }
+
+    /* Full height image header */
+    .bgimg-servicios {
+      background-position: center;
+      background-size: cover;
+      background-image: url("assets/images/closeup-of-smartphone-with-gps-application.jpg");
+      min-height: 60%;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+    
+    .link{
+      text-decoration: none;
+    }
+    .link:hover{
+      text-decoration: underline;
+    }
+    .smargin{
+      margin: 2.5em;
+    }
+
+    .card{
+      transition: all .05s linear;
+    }
+
+    .emphasis{
+      transform: scale(1.05);
+      border-color: gray;
+      box-shadow: 0 0 1rem gray;
+      cursor:pointer;
+    }
+
+    .w3-tooltip:hover .w3-text{
+      position:absolute;
+      left:0;
+      top:115px;
+      background-color: white;
+      padding: 5px 16px;
+      width:100%;
+      height: 60px;
+     /* text-overflow:;*/
+    }
+    .panel{
+      padding:0 16px;
+      margin-top:0;
+    }
+    h5{
+      font-weight: 700;
+    }
+    .slides-vehiculos,
+    .slides-flota{
+      display:none;
+    }
+   </style>
+ </head>
+
+ <body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button w3-wide"><img src="assets/logos/logo-nuevo-sin-spa.png" alt="as-mid logo" class="w3-image" style="width:100%; max-width:150px"></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-margin-top w3-hide-small w3-hide-medium">
+          <a href="nosotros.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-user"></i> NOSOTROS</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-th"></i> SERVICIOS</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="rastreo.html" class="w3-bar-item w3-button w3-hover-indigo">Rastreo</a>
+              <a href="servicios.html" class="w3-bar-item w3-button w3-hover-indigo">Otros Servicios</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-envelope"></i> CONTACTO</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="http://rastreo.app.as-mid.cl/" class="w3-bar-item w3-button w3-hover-indigo">Cliente</a>
+              <a href="https://www.perfildeconduccion.com/web/" class="w3-bar-item w3-button w3-hover-indigo">Perfil de Conducción</a>
+              <a href="http://gps.as-mid.com/" class="w3-bar-item w3-button w3-hover-indigo">Nueva Plataforma</a>
+              <a href="admin.html" class="w3-bar-item w3-button w3-hover-indigo">Administrador</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-margin-top w3-hide-large w3-hover-indigo" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-red w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Cerrar ×</a>
+      <a href="nosotros.html" onclick="w3_close()" class="w3-bar-item w3-button">NOSOTROS</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-th"></i> SERVICIOS</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="rastreo.html" onclick="w3_close()" class="w3-bar-item w3-button">Rastreo</a>
+          <a href="servicios.html" onclick="w3_close()" class="w3-bar-item w3-button">Otros Servicios</a>
+        </div>
+      </div>
+      <a href="contacto.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="http://rastreo.app.as-mid.cl/" onclick="w3_close()" class="w3-bar-item w3-button">Cliente</a>
+          <a href="https://www.perfildeconduccion.com/web/" onclick="w3_close()" class="w3-bar-item w3-button">Perfil de Conducción</a>
+          <a href="http://gps.as-mid.com/" onclick="w3_close()" class="w3-bar-item w3-button">Nueva Plataforma</a>
+          <a href="admin.html" onclick="w3_close()" class="w3-bar-item w3-button">Administrador</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero-->
+    <header class="bgimg-servicios w3-display-container w3-grayscale-min" id="home">
+      <div class="w3-display-middle w3-text-white" style="padding: 64px; margin-top: 24px;">
+        <span class="w3-jumbo w3-hide-small"><b>Servicios</b></span>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium"><b>Servicios</b></span>
+      </div> 
+    </header>
+
+    <!--Transporte-->
+    <div class="w3-container" id="transporte" style="padding: 128px 16px 32px 16px;">
+      <h3 class="w3-center"><b>Servicios de Transporte</b></h3>
+      <p class="w3-center">TENEMOS LA SOLUCIÓN DE TRANSPORTE ADAPTADA A SUS NECESIDADES</p>
+      <div class="w3-row-padding w3-center">
+        <div class="w3-third" style="margin-top: 24px;">
+          <div class="w3-card card">
+            <div class="w3-container">
+              <p class="w3-large"><b>Personal</b></p>
+              <img class="w3-image w3-round" src="assets/images/transporte-individual.jpg" alt="transporte-individual">
+              <p class="w3-justify">
+                <i class="fas fa-bullseye w3-text-indigo"></i> Traslados a particulares <br> 
+                <i class="fas fa-bullseye w3-text-indigo"></i> Viajes a todos los destinos del territorio nacional <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Traslados individuales <br> 
+                <i class="fas fa-bullseye w3-text-indigo"></i> Encomiendas <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Servicios de traslados especiales en caso de conductor embriagado o con sueño <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Traslados las 24 horas
+              </p>
+              <p><a href="contacto.html" class="w3-button w3-indigo w3-block w3-hover-gray" style="width:60%; margin:auto;"><i class="fa fa-envelope"></i> ¡Contáctenos!</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-third" style="margin-top: 24px;">
+          <div class="w3-card card">
+            <div class="w3-container">
+              <p class="w3-large"><b>A Empresas</b></p>
+              <img class="w3-image w3-round" src="assets/images/transporte-empresas.jpg" alt="transporte-empresas">
+              <p class="w3-justify">
+                <i class="fas fa-bullseye w3-text-indigo"></i> Cambios de turno <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Cierres nocturnos y diurnos <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Aperturas <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Transporte de personal a proyectos <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Manejo de logística <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Transporte para eventos <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Transporte de equipos <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Turismo <br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Encomiendas especiales
+              </p>
+              <p><a href="contacto.html" class="w3-button w3-indigo w3-block w3-hover-gray" style="width:60%; margin:auto;"><i class="fa fa-envelope"></i> ¡Contáctenos!</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-third" style="margin-top: 24px;">
+          <div class="w3-card card">
+            <div class="w3-container">
+              <p class="w3-large"><b>Carga</b></p>
+              <img class="w3-image w3-round" src="assets/images/transporte-de-carga.jpg" alt="transporte-de-carga">
+              <p class="w3-justify w3-margin-left"><br>
+                <i class="fas fa-bullseye w3-text-indigo"></i> Mudanzas</p>
+                <p class="w3-justify w3-margin-left"><i class="fas fa-bullseye w3-text-indigo"></i> Equipos </p>
+                <p class="w3-justify w3-margin-left"><i class="fas fa-bullseye w3-text-indigo"></i> Enseres </p>
+                <p class="w3-justify w3-margin-left"><i class="fas fa-bullseye w3-text-indigo"></i> Refrigerados</p>
+                <p class="w3-justify w3-margin-left" style="padding-bottom: 20px;"><i class="fas fa-bullseye w3-text-indigo"></i> Perecederos</p>
+                <p><a href="contacto.html" class="w3-button w3-indigo w3-block w3-hover-gray" style="width:60%; margin:auto;"><i class="fa fa-envelope"></i> ¡Contáctenos!</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Vehículos-->
+    <div class="w3-container w3-light-blue w3-grayscale-min w3-leftbar w3-rightbar w3-border-indigo" style="padding-bottom: 35px;">
+      <p class="w3-large w3-center"><b>Nuestros vehículos</b></p>
+      <p class="w3-center"> Automóviles, SUV, Vans, Autobuses, Camiones </p>
+      <img class="w3-image slides-vehiculos w3-round-large" src="assets/images/automovil.jpg" alt="automovil" style="height:300px; margin:auto;">
+      <img class="w3-image slides-vehiculos w3-round-large" src="assets/images/suv.jpg" alt="suv" style="height:300px; margin:auto;">
+      <img class="w3-image slides-vehiculos w3-round-large" src="assets/images/van.jpg" alt="van" style="height:300px; margin:auto;">
+      <img class="w3-image slides-vehiculos w3-round-large" src="assets/images/autobus.jpg" alt="autobus" style="height:300px; margin:auto;">
+      <img class="w3-image slides-vehiculos w3-round-large" src="assets/images/camion.jpg" alt="camion" style="height:300px; margin:auto;">
+    </div>
+      <!--Contacto-->
+
+
+    <!--Consultoría-->
+    <div class="w3-container container-padding w3-light-grey" id="consultoria">
+      <h3 class="w3-center"><b>Consultorías</b></h3>
+      <p class="w3-center">LE ASESORAMOS EN DISTINTAS ÁREAS</p>
+
+        <div class="w3-row-padding w3-center" style="margin-top:64px">
+          <div class="w3-third">
+            <i class="fas fa-tools w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+            <p class="w3-large">Construcción</p>
+          </div>
+          <div class="w3-third">
+            <i class="fas fa-cogs w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+            <p class="w3-large">Ingeniería</p>
+          </div>
+          <div class="w3-third">
+            <i class="fas fa-clipboard-list w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+            <p class="w3-large">Logística</p>
+          </div>
+        </div>
+
+        <div class="w3-row-padding w3-center" style="margin-top:64px">
+          <div class="w3-third">
+            <i class="fas fa-book w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+            <p class="w3-large">Desarrollo de proyectos</p>
+          </div>
+          <div class="w3-third">
+            <i class="fas fa-award w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+            <p class="w3-large">Optimización y mejora continua</p>
+          </div>
+          <div class="w3-third">
+            <i class="fas fa-chart-line w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+            <p class="w3-large">Control de calidad</p>
+          </div>
+        </div>
+    </div>
+
+    <!--Control de Flota-->
+    <div class="w3-container container-padding" id="control-de-flota">
+      <h3 class="w3-center"><b>Control de flota</b></h3>
+      <p class="w3-center">HERRAMIENTAS PARA GESTIONAR SU FLOTA</p>
+      <div class="w3-row-padding w3-padding-top-32">
+        <div class="w3-half">
+          <p class="w3-justify w3-margin-left">
+            <i class="fas fa-bullseye w3-text-indigo w3-large"></i> Herramientas para el manejo y control de la flota <br> 
+            <i class="fas fa-bullseye w3-text-indigo w3-large"></i> Control de mantenimientos preventivos y correctivos <br>
+            <i class="fas fa-bullseye w3-text-indigo w3-large"></i> Control de salida y entrada de repuestos, cambio de choferes, remolques. <br> 
+            <i class="fas fa-bullseye w3-text-indigo w3-large"></i> Control de temperatura, aceite, energía, velocidad, eco drivers <br> 
+            <i class="fas fa-bullseye w3-text-indigo w3-large"></i> Muchas más herramientas en nuestra plataforma para tal fin <br> 
+            <i class="fas fa-bullseye w3-text-indigo w3-large"></i> Administrado directamente por nuestros clientes según sus necesidades.
+          </p>
+          <p><a href="contacto.html" class="w3-button w3-indigo w3-block w3-hover-gray" style="width:50%; margin:auto;"><i class="fa fa-envelope"></i> ¡Contáctenos!</a></p>
+        </div>
+        <div class="w3-half">
+          <img class="w3-image w3-round-large w3-margin-left w3-margin-top slides-flota" src="assets/images/control-de-flota.jpg" alt="control-de-flota" style="width:90%; height:250px; margin:auto;">
+          <img class="w3-image w3-round-large w3-margin-left w3-margin-top slides-flota" src="assets/images/wialon-propaganda.png" alt="control-de-flota" style="width:90%; height:250px; margin:auto;">
+          <img class="w3-image w3-round-large w3-margin-left w3-margin-top slides-flota" src="assets/images/transporte-de-carga.jpg" alt="control-de-flota" style="width:90%; height:250px; margin:auto;">
+          <img class="w3-image w3-round-large w3-margin-left w3-margin-top slides-flota" src="assets/images/suv.jpg" alt="control-de-flota" style="width:90%; height:250px; margin:auto;">
+          <img class="w3-image w3-round-large w3-margin-left w3-margin-top slides-flota" src="assets/images/closeup-of-smartphone-with-gps-application.jpg" alt="control-de-flota" style="width:90%; height:250px; margin:auto;">
+        </div>
+      </div>
+    </div>
+
+    <!--Soluciones integrales-->
+    <div class="w3-container container-padding w3-light-grey" id="soluciones-integrales">
+      <h3 class="w3-center"><b>Soluciones Integrales</b></h3>
+      <p class="w3-center">GRAN VARIEDAD DE SERVICIOS</p>
+      <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-third">
+          <i class="fas fa-tools w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+          <p class="w3-large">Construcción</p>
+        </div>
+        <div class="w3-third">
+          <i class="fas fa-paint-roller w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+          <p class="w3-large">Remodelaciones</p>
+        </div>
+        <div class="w3-third">
+          <i class="fas fa-screwdriver w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+          <p class="w3-large">Remociones de equipos</p>
+        </div>
+      </div>
+      <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-half">
+          <i class="fas fa-box-open w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+          <p class="w3-large">Suministros</p>
+        </div>
+        <div class="w3-half">
+          <i class="fas fa-car-alt w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+          <p class="w3-large">Administración de automóviles de terceros</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+      <a href="#home" class="w3-button w3-red"><i class="fa fa-arrow-up w3-margin-right"></i>Volver Arriba</a>
+      <div class="w3-container w3-row w3-center w3-black w3-padding-64">
+        <div class="w3-third w3-margin-top">
+          <span><b>ATENCIÓN AL CLIENTE</b></span>
+          <br>Póngase en contacto con Nosotros
+          <br><a href="https://wa.me/51959593083" target="_blank" class="link">WhatsApp</a> <!--Link a whatsapp-->
+          <br><a href="tel:+56949116797" class="link">Teléfono</a> <!--Link a tlf/llamada-->
+          <br><a href="mailto:ventas@as-mid.com " target="_blank" class="link">Email</a> <!--Link a email-->
+          <br><a href="https://www.google.com/maps/place/Oficina+219,+Av.+Almte.+Miguel+Grau+1350,+Lima+15063,+Per%C3%BA/@-12.1381855,-77.0268179,16z/data=!4m5!3m4!1s0x9105b7e4d672eba3:0xde25355c63513748!8m2!3d-12.1381879!4d-77.0222876?hl=es" target="_blank" class="link">Ubicación</a> <!--Link a mapa-->
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>SERVICIOS</b></span>
+          <br><a href="rastreo.html" class="link">Rastreo</a>
+          <br><a href="servicios.html#transporte" class="link">Transporte y Carga</a>
+          <br><a href="servicios.html#consultoria" class="link">Consultoría</a>
+          <br><a href="rastreo.html#monitoreo" class="link">Monitoreo</a>
+          <br><a href="servicios.html#control-de-flota" class="link">Control de flota</a>
+          <br><a href="servicios.html#soluciones-integrales" class="link">Soluciones integrales</a>
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>NOSOTROS</b></span>
+          <br><a href="assets/documents/politica-de-calidad.pdf" target="_blank" class="link">Políticas de calidad</a>
+          <br><a href="nosotros.html" class="link">Quiénes somos</a>
+        </div>
+      </div>
+
+      <!--Social media-->
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+
+      <small>As-Mid Spa &copy; Todos los Derechos Reservados</small>
+    </footer>
+  
+       
+      <script>
+            
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    let mySidebar = document.getElementById("mySidebar");
+    
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+    
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+
+    //Automatic Slideshow Vehiculos y Control de flota
+    let slideIndex = 0;
+
+    let x = document.getElementsByClassName("slides-vehiculos");
+    let z = document.getElementsByClassName("slides-flota");
+
+    carousel();
+
+    function carousel() {
+    let i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < z.length; i++){
+      z[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1}
+    if (slideIndex > z.length) {slideIndex = 1}
+    x[slideIndex-1].style.display = "block";
+    z[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+
+    //growing cards for emphasis when hovering
+    function removeTransition(e){
+    if(e.propertyName !== 'transform') return; //skip it if it's not transform
+    this.classList.remove('emphasis');
+    }
+  
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => card.addEventListener('mouseover', function(e){
+      card.classList.add('emphasis');
+    }));
+
+    cards.forEach(card => card.addEventListener('mouseleave', function(e){
+      card.classList.remove('emphasis');
+    }));
+    </script>
+ </body>
+</html>

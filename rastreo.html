@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+   <title>as-mid</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="assets/stylesheets/w3.css">
+   <link rel="stylesheet" href="assets/fonts/fonts.css">
+   <script src="https://kit.fontawesome.com/d56031a864.js" crossorigin="anonymous"></script>
+   <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+    .container-padding{
+      padding: 128px 16px;
+    }
+    /* Full height image header */
+    .bgimg-rastreo {
+      background-position: center;
+      background-size: cover;
+      background-image: url("assets/images/closeup-of-smartphone-with-gps-application.jpg");
+      min-height: 60%;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+    
+    .link{
+      text-decoration: none;
+    }
+    .link:hover{
+      text-decoration: underline;
+    }
+    .smargin{
+      margin: 2.5em;
+    }
+
+    .card{
+      transition: all .05s linear;
+    }
+
+    .emphasis{
+      transform: scale(1.05);
+      border-color: gray;
+      box-shadow: 0 0 1rem gray;
+      cursor:pointer;
+    }
+
+    .w3-tooltip:hover .w3-text{
+      position:absolute;
+      left:0;
+      top:115px;
+      background-color: white;
+      padding: 5px 16px;
+      width:100%;
+      height: 60px;
+     /* text-overflow:;*/
+    }
+    .panel{
+      padding:0 16px;
+      margin-top:0;
+    }
+    h5{
+      font-weight: 700;
+    }
+    .slides-rastreo{
+      display:none;
+    }
+    .slides-monitoreo{
+      display:none;
+    }
+   </style>
+ </head>
+
+ <body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button w3-wide"><img src="assets/logos/logo-nuevo-sin-spa.png" alt="as-mid logo" class="w3-image" style="width:100%; max-width:150px"></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-margin-top w3-hide-small w3-hide-medium">
+          <a href="nosotros.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-user"></i> NOSOTROS</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-th"></i> SERVICIOS</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="rastreo.html" class="w3-bar-item w3-button w3-hover-indigo">Rastreo</a>
+              <a href="servicios.html" class="w3-bar-item w3-button w3-hover-indigo">Otros Servicios</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-envelope"></i> CONTACTO</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="http://rastreo.app.as-mid.cl/" class="w3-bar-item w3-button w3-hover-indigo">Cliente</a>
+              <a href="https://www.perfildeconduccion.com/web/" class="w3-bar-item w3-button w3-hover-indigo">Perfil de Conducción</a>
+              <a href="http://gps.as-mid.com/" class="w3-bar-item w3-button w3-hover-indigo">Nueva Plataforma</a>
+              <a href="admin.html" class="w3-bar-item w3-button w3-hover-indigo">Administrador</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-margin-top w3-hide-large w3-hover-indigo" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-red w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Cerrar ×</a>
+      <a href="nosotros.html" onclick="w3_close()" class="w3-bar-item w3-button">NOSOTROS</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-th"></i> SERVICIOS</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="rastreo.html" onclick="w3_close()" class="w3-bar-item w3-button">Rastreo</a>
+          <a href="servicios.html" onclick="w3_close()" class="w3-bar-item w3-button">Otros Servicios</a>
+        </div>
+      </div>
+      <a href="contacto.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="http://rastreo.app.as-mid.cl/" onclick="w3_close()" class="w3-bar-item w3-button">Cliente</a>
+          <a href="https://www.perfildeconduccion.com/web/" onclick="w3_close()" class="w3-bar-item w3-button">Perfil de Conducción</a>
+          <a href="http://gps.as-mid.com/" onclick="w3_close()" class="w3-bar-item w3-button">Nueva Plataforma</a>
+          <a href="admin.html" onclick="w3_close()" class="w3-bar-item w3-button">Administrador</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero-->
+    <header class="bgimg-rastreo w3-display-container w3-grayscale-min" id="home">
+      <div class="w3-display-middle w3-text-white" style="padding: 64px; margin-top: 24px;">
+        <span class="w3-jumbo w3-hide-small"><b>Rastreo </b></span>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium"><b>Rastreo</b></span>
+      </div> 
+    </header>
+
+    <!--Rastreo-->
+    <div class="w3-container container-padding">
+      <h3 class="w3-center"><b>Plataforma de Rastreo Satelital (GPS)</b></h3>
+      <p class="w3-justify w3-margin-left w3-margin-right" style="padding:0 32px">
+        ASMID es un sistema polifuncional de seguimiento GPS de transporte, unidades móviles y estacionarias.
+        Las soluciones basadas en el sistema de monitoreo GPS ASMID permiten prestar servicios eficientes
+        de geolocalización de vehículos por GPS, incluyendo el análisis exhaustivo y la rendición de cuentas
+        para los clientes finales.
+      </p>
+      <div class="w3-row-padding w3-padding-top-32">
+        <div class="w3-half w3-container">
+          <!--Slideshow rastreo-->
+          <img class="w3-image w3-round-large slides-rastreo" style="height: 300px; width:80%; margin:auto" src="assets/images/rastreo-gps.jpg" alt="rastreo-gps">
+          <img class="w3-image w3-round-large slides-rastreo" style="height: 300px; width:80%; margin:auto" src="assets/images/hombre-revisando-gps.jpg" alt="hombre-revisando-gps">
+          <img class="w3-image w3-round-large slides-rastreo" style="height: 300px; width:80%; margin:auto" src="assets/images/rastreo.jpg" alt="rastreo">
+        </div>
+        <div class="w3-half w3-container">
+          <p><i class="fas fa-bullseye w3-xlarge w3-text-indigo w3-margin-top w3-justify"></i> Condiciones atractivas de cooperación, han hecho que más de 950 operadores eligieran ASMID</p>
+          <p><i class="fas fa-bullseye w3-xlarge w3-text-indigo w3-justify"></i> Posibilidades infinitas para el seguimiento GPS </p>
+          <p><i class="fas fa-bullseye w3-xlarge w3-text-indigo w3-justify"></i> Sistema de informes eficaz</p> 
+          <p><i class="fas fa-bullseye w3-xlarge w3-text-indigo w3-justify"></i> Soporte técnico las 24 horas al día, los 7 días de la semana</p>
+          <p><i class="fas fa-bullseye w3-xlarge w3-text-indigo w3-justify"></i> Más de 10 años de presencia en el mercado internacional abarcando hasta 130 países</p>
+          <p><a href="contacto.html" class="w3-button w3-indigo w3-block w3-hover-gray" style="width:40%; margin:auto;"><i class="fa fa-envelope"></i> ¡Contáctenos!</a></p>
+        </div>
+      </div>
+    </div>
+    <!--Servicios de rastreo-->
+    <div class="w3-container container-padding w3-light-grey">
+      <h3 class="w3-center"><b>Servicios de Rastreo</b></h3>
+      <p class="w3-center">ADAPTÁNDONOS A TODOS SUS REQUERIMIENTOS</p>
+      <div class="w3-row-padding" style="margin-top:64px">
+        <div class="w3-half">
+          <img class="w3-image w3-margin-left" src="assets/logos/hosting-mid2.png" alt="logo-ASMID-hosting">
+          <h4 class="w3-margin-left"><b>ASMID Hosting</b></h4>
+          <p class="w3-justify w3-margin-left w3-margin-right">ASMID Hosting es una versión SaaS del sistema de monitoreo GPS y GLONASS con un amplio espectro de funciones y flexibles posibilidades de configuración. La solución en nube posibilita evitar los gastos ligados con la compra, instalación y administración del servidor local y software de servidor.<br>El almacenamiento y administración de ASMID Hosting se realiza en el centro de datos de ASMID (mire “Reglamento del servicio”). ASMID se encarga de toda la parte técnica para que el cliente pueda concentrarse en su negocio.</p>
+        </div>
+        <div class="w3-half">
+          <img class="w3-image w3-margin-left" src="assets/logos/local22.png" alt="logo-ASMID-local">
+          <h4 class="w3-margin-left"><b>ASMID Local</b></h4>
+          <p class="w3-justify w3-margin-left w3-margin-right">ASMID Local es una versión local del sistema de monitoreo de transporte satelital de ASMID. Gracias a la estructura de módulos de las funciones, el cliente puede elegir sólo las funciones que son necesarias para su negocio.<br>El sistema conviene para los operadores que cuentan con cientos a unos mil vehículos, es posible instalarlo en los servidores de potencias medias. La interfaz inteligente del manejo de la plataforma permite activar y desactivar servidores remotamente.</p>
+        </div>
+      </div>
+      <div class="w3-row-padding w3-center" style="margin-top:48px;padding: 0 32px;">
+        <i class="fas fa-mobile-alt w3-xxxlarge"></i>
+        <h4><b>ASMID Mobile</b></h4>
+        <p class="w3-justify w3-margin-right w3-margin-left">La aplicación multilingüe está disponible tanto para la solución SaaS de ASMID Hosting, como para la versión de servidor de ASMID Local. ASMID Mobile permite trabajar con la lista de las unidades de monitoreo posibilitando obtener rápido la información importante de la flota en tiempo real.</p>
+      </div>
+    </div>
+
+    <!--Nota de Gurtam-->
+    <div class="w3-container w3-light-blue w3-topbar w3-bottombar w3-border-indigo">
+      <p class="w3-large w3-margin-left"><b>Acerca de la compatibilidad de nuestros equipos</b></p>
+      <p class="w3-justify w3-margin-left w3-margin-right">ASMID es compatible con muchos tipos de dispositivos de seguimiento. Gurtam está colaborando activamente con los fabricantes de dispositivos, lo cual permite integrar dispositivos nuevos.
+
+        Esta estrategia garantiza flexibilidad de nuestro sistema de monitoreo y lo hace accesible para cada cliente que usa cualquier tipo de dispositivo.</p>
+    </div>
+
+    <div class="w3-container container-padding">
+      <h3 class="w3-center"><b>Soluciones de Rastreo</b></h3>
+      <p class="w3-center">CONOZCA LAS SOLUCIONES QUE TENEMOS PARA USTED</p>
+      <div class="w3-row-padding w3-center" style="margin-top: 64px;">
+        <a href="assets/documents/ASMID-Logistic.pdf" target="_blank"><div class="w3-third card w3-round" style="padding-top: 18px; margin-top:20px;">
+          <i class="fas fa-shipping-fast w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+          <p class="w3-large w3-text-red link"><b>ASMID LOGISTIC</b></p>
+          <p>Servicio avanzado de gestión de pedidos</p>
+        </div></a>
+        <a href="assets/documents/ASMID-UTS.pdf" target="_blank"><div class="w3-third card w3-round" style="padding-top: 18px; margin-top:20px;">
+          <i class="fas fa-globe w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+          <p class="w3-large w3-text-red link"><b>ASMID UTS</b></p>
+          <p>Soluciones de seguimiento avanzadas</p>
+        </div></a>
+        <a href="assets/documents/ASMID-Nimbus.pdf" target="_blank"><div class="w3-third card w3-round" style="padding-top: 18px; margin-top:20px;">
+          <i class="fas fa-bus-alt w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+          <p class="w3-large w3-text-red link"><b>ASMID NIMBUS</b></p>
+          <p>Nueva solución para el transporte público</p>
+        </div></a>
+      </div>
+    </div>
+
+    <!--Monitoreo-->
+    <div class="w3-container container-padding w3-light-grey" id="monitoreo">
+        <h3 class="w3-center"><b>Monitoreo</b></h3>
+        <p class="w3-center">REALIZAMOS SEGUIMIENTO DE SUS DISPOSITIVOS RASTREADOS</p>
+        <div class="w3-row-padding w3-padding-top-32">
+          <div class="w3-half">
+            <p class="w3-justify w3-margin-left">
+              Servicios de Monitoreo en nuestro data center 24/7, disponible para nuestros clientes ademas de contar con APP para sus teléfonos móviles donde nuestros clientes pueden monitorear sus propios activos y procesos.
+            </p>
+            <p><a href="contacto.html" class="w3-button w3-indigo w3-block w3-hover-gray" style="width:40%; margin:auto;"><i class="fa fa-envelope"></i> ¡Contáctenos!</a></p>
+          </div>
+          <div class="w3-half w3-container">
+            <img class="w3-image w3-round-large slides-monitoreo" src="assets/images/MONITOREO.jpg" alt="monitoreo" style="height: 200px; width: 90%; margin:auto;">
+            <img class="w3-image w3-round-large slides-monitoreo" src="assets/images/control-de-flota.jpg" alt="control-de-flota" style="height: 200px; width: 90%; margin:auto;">
+            <img class="w3-image w3-round-large slides-monitoreo" src="assets/images/hombre-revisando-gps.jpg" alt="hombre-revisando-gps" style="height:200px; width: 90%; margin:auto;">
+          </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+      <a href="#home" class="w3-button w3-red"><i class="fa fa-arrow-up w3-margin-right"></i>Volver Arriba</a>
+      <div class="w3-container w3-row w3-center w3-black w3-padding-64">
+        <div class="w3-third w3-margin-top">
+          <span><b>ATENCIÓN AL CLIENTE</b></span>
+          <br>Póngase en contacto con Nosotros
+          <br><a href="https://wa.me/51959593083" target="_blank" class="link">WhatsApp</a> <!--Link a whatsapp-->
+          <br><a href="tel:+56949116797" class="link">Teléfono</a> <!--Link a tlf/llamada-->
+          <br><a href="mailto:ventas@as-mid.com " target="_blank" class="link">Email</a> <!--Link a email-->
+          <br><a href="https://www.google.com/maps/place/Oficina+219,+Av.+Almte.+Miguel+Grau+1350,+Lima+15063,+Per%C3%BA/@-12.1381855,-77.0268179,16z/data=!4m5!3m4!1s0x9105b7e4d672eba3:0xde25355c63513748!8m2!3d-12.1381879!4d-77.0222876?hl=es" target="_blank" class="link">Ubicación</a> <!--Link a mapa-->
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>SERVICIOS</b></span>
+          <br><a href="rastreo.html" class="link">Rastreo</a>
+          <br><a href="servicios.html#transporte" class="link">Transporte y Carga</a>
+          <br><a href="servicios.html#consultoria" class="link">Consultoría</a>
+          <br><a href="rastreo.html#monitoreo" class="link">Monitoreo</a>
+          <br><a href="servicios.html#control-de-flota" class="link">Control de flota</a>
+          <br><a href="servicios.html#soluciones-integrales" class="link">Soluciones integrales</a>
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>NOSOTROS</b></span>
+          <br><a href="assets/documents/politica-de-calidad.pdf" target="_blank" class="link">Políticas de calidad</a>
+          <br><a href="nosotros.html" class="link">Quiénes somos</a>
+        </div>
+      </div>
+
+      <!--Social media-->
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+
+      <small>As-Mid Spa &copy; Todos los Derechos Reservados</small>
+    </footer>
+  
+       
+      <script>
+            
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    let mySidebar = document.getElementById("mySidebar");
+    
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+    
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+
+    //Automatic Slideshow Rastreo y Monitoreo
+    let slideIndex = 0;
+
+    let x = document.getElementsByClassName("slides-rastreo");
+    let z = document.getElementsByClassName("slides-monitoreo");
+
+    carousel();
+
+    function carousel() {
+    let i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < z.length; i++){
+      z[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1}
+    if (slideIndex > z.length) {slideIndex = 1}
+    x[slideIndex-1].style.display = "block";
+    z[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+
+    //growing cards for emphasis when hovering
+    function removeTransition(e){
+    if(e.propertyName !== 'transform') return; //skip it if it's not transform
+    this.classList.remove('emphasis');
+    }
+  
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => card.addEventListener('mouseover', function(e){
+      card.classList.add('emphasis');
+    }));
+
+    cards.forEach(card => card.addEventListener('mouseleave', function(e){
+      card.classList.remove('emphasis');
+    }));
+    </script>
+ </body>
+</html>

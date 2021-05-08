@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+   <title>as-mid</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="assets/stylesheets/w3.css">
+   <link rel="stylesheet" href="assets/fonts/fonts.css">
+   <script src="https://kit.fontawesome.com/d56031a864.js" crossorigin="anonymous"></script>
+   <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+    .container-padding{
+      padding: 128px 16px;
+    }
+    /* Full height image header */
+    .bgimg-nosotros {
+      background-position: center;
+      background-size: cover;
+      background-image: url("assets/images/closeup-of-smartphone-with-gps-application.jpg");
+      min-height: 60%;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+    
+    .link{
+      text-decoration: none;
+    }
+    .link:hover{
+      text-decoration: underline;
+    }
+    .smargin{
+      margin: 2.5em;
+    }
+
+    .card{
+      transition: all .05s linear;
+    }
+
+    .emphasis{
+      transform: scale(1.1);
+      border-color: gray;
+      box-shadow: 0 0 1rem gray;
+      cursor:pointer;
+    }
+
+    .w3-tooltip:hover .w3-text{
+      position:absolute;
+      left:0;
+      top:115px;
+      background-color: white;
+      padding: 5px 16px;
+      width:100%;
+      height: 60px;
+     /* text-overflow:;*/
+    }
+    .panel{
+      padding:0 16px;
+      margin-top:0;
+    }
+    h5{
+      font-weight: 700;
+    }
+   </style>
+ </head>
+
+ <body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button w3-wide"><img src="assets/logos/logo-nuevo-sin-spa.png" alt="as-mid logo" class="w3-image" style="width:100%; max-width:150px"></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-margin-top w3-hide-small w3-hide-medium">
+          <a href="nosotros.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-user"></i> NOSOTROS</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-th"></i> SERVICIOS</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="rastreo.html" class="w3-bar-item w3-button w3-hover-indigo">Rastreo</a>
+              <a href="servicios.html" class="w3-bar-item w3-button w3-hover-indigo">Otros Servicios</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-envelope"></i> CONTACTO</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="http://rastreo.app.as-mid.cl/" class="w3-bar-item w3-button w3-hover-indigo">Cliente</a>
+              <a href="https://www.perfildeconduccion.com/web/" class="w3-bar-item w3-button w3-hover-indigo">Perfil de Conducción</a>
+              <a href="http://gps.as-mid.com/" class="w3-bar-item w3-button w3-hover-indigo">Nueva Plataforma</a>
+              <a href="admin.html" class="w3-bar-item w3-button w3-hover-indigo">Administrador</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-margin-top w3-hide-large w3-hover-indigo" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-red w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Cerrar ×</a>
+      <a href="nosotros.html" onclick="w3_close()" class="w3-bar-item w3-button">NOSOTROS</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-th"></i> SERVICIOS</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="rastreo.html" onclick="w3_close()" class="w3-bar-item w3-button">Rastreo</a>
+          <a href="servicios.html" onclick="w3_close()" class="w3-bar-item w3-button">Otros Servicios</a>
+        </div>
+      </div>
+      <a href="contacto.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="http://rastreo.app.as-mid.cl/" onclick="w3_close()" class="w3-bar-item w3-button">Cliente</a>
+          <a href="https://www.perfildeconduccion.com/web/" onclick="w3_close()" class="w3-bar-item w3-button">Perfil de Conducción</a>
+          <a href="http://gps.as-mid.com/" onclick="w3_close()" class="w3-bar-item w3-button">Nueva Plataforma</a>
+          <a href="admin.html" onclick="w3_close()" class="w3-bar-item w3-button">Administrador</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero-->
+    <header class="bgimg-nosotros w3-display-container w3-grayscale-min" id="home">
+      <div class="w3-display-middle w3-text-white" style="padding: 64px; margin-top: 24px;">
+        <span class="w3-jumbo w3-hide-small"><b>Nosotros</b></span>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium"><b>Nosotros</b></span>
+      </div> 
+    </header>
+
+    <!--Quienes somos-->
+    <div class="w3-container container-padding">
+      <div class="w3-row-padding">
+        <div class="w3-half">
+          <h3><b>¿Quiénes somos?</b></h3>
+          <p>ALGÚN SUBTÍTULO</p>
+          <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+          </p>
+        </div>
+        <div class="w3-half m6">
+          <img class="w3-image w3-round-large" src="assets/images/hombre-revisando-gps.jpg" alt="Buildings" width="700" height="394">
+        </div>
+      </div>
+    </div>
+
+    <!--Misión-->
+    <div class="w3-container container-padding w3-light-grey">
+      <div class="w3-row-padding">
+        <div class="w3-half m6">
+          <img class="w3-image w3-round-large" src="assets/images/hombre-revisando-gps.jpg" alt="Buildings" width="700" height="394">
+        </div>
+        <div class="w3-half">
+          <h3><b>Misión</b></h3>
+          <p>NUESTRO PROPÓSITO</p>
+          <p class="w3-justify">Dar respuesta a todos nuestros clientes satisfaciendo las necesidades en los servicios que ofrecemos, de manera oportuna, y eficiente, ofreciendo servicios de calidad, innovadores, seguros y respetuosos con el medio ambiente, basando nuestras operaciones en nuestro grupo de trabajo exigiendo y logrando su desarrollo profesional y personal.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--Visión-->
+    <div class="w3-container container-padding">
+      <div class="w3-row-padding">
+        <div class="w3-half">
+          <h3><b>Visión</b></h3>
+          <p>¿QUÉ QUEREMOS LOGRAR?</p>
+          <p class="w3-justify">Ser una empresa líder en los servicios que vendemos, siendo capaces de resolver cualquier necesidad a nuestros clientes teniendo como política PENSAR COMO ELLOS generando beneficios para nuestros colaboradores y la sociedad en general, insertando oportunidades, desarrollo profesional y personal a nuestro equipo de trabajo.
+          </p>
+        </div>
+        <div class="w3-half m6">
+          <img class="w3-image w3-round-large" src="assets/images/hombre-revisando-gps.jpg" alt="Buildings" width="700" height="394">
+        </div>
+      </div>
+    </div>
+
+    <!--Valores-->
+    <div class="w3-container container-padding w3-light-grey">
+      <h3 class="w3-center"><b>Valores</b></h3>
+      <p class="w3-center w3-large">ESTAMOS COMPROMETIDOS CON NUESTROS CLIENTES</p>
+      <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-third">
+          <i class="fas fa-clipboard w3-margin-bottom w3-jumbo w3-center w3-text-indigo"></i>
+          <p class="w3-large">Responsabilidad</p>
+        </div>
+        <div class="w3-third">
+          <i class="far fa-clock w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+          <p class="w3-large">Puntualidad</p>
+        </div>
+        <div class="w3-third">
+          <i class="fas fa-book-open w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+          <p class="w3-large">Transparencia</p>
+        </div>
+      </div>
+    </div>
+    <!--Reseña histórica-->
+    <div class="w3-container container-padding">
+      <div style="padding: 0 40px">
+        <h3 class="w3-center"><b>Reseña Histórica</b></h3>
+        <p class="w3-center w3-large">AÑOS OFRECIENDO SERVICIOS</p>
+        <div class="w3-center m6">
+          <img class="w3-image w3-round-large" src="assets/images/hombre-revisando-gps.jpg" alt="Buildings" width="500" height="194">
+        </div>
+        <p class="w3-justify">Empresa con Raíces Venezolanas ubicada en la el estado Anzoátegui, en la ciudad
+           de Barcelona, con sucursales en los estados ZULIA, LARA, y MONAGAS – VENEZUELA bajo el nombre de 
+           TRANSPORTES Y SERVICIOS MID, C.A, dedicada desde el año 2011 a la prestación de Servicios a la Industria, 
+           enfocada en el área de Transporte, Logística, Suministro de Facilidades, asesorías de proyectos, alquiler 
+           de vehículos con y sin chofer, servicios de transporte de personal en Autobuses, vans, camionetas, sedan, 
+           según la naturaleza del requerimiento del cliente.<br>Con el objetivo de seguir el crecimiento 
+           organizacional y con miras al crecimiento global se inició la expansión internacional con la apertura de 
+           nuestra primera oficina fuera de las fronteras venezolanas, aperturando un centro de operaciones en ciudad
+            de Panamá en la Republica de Panamá identificado con el nombre de TRANSPORTES Y SERVICIOS MID PANAMÁ, S.A 
+            con el fin de que este fuera centro de negocios para cuentas internacionales, ofreciendo los servicios 
+            afines a los rubros en los cuales nos desempeñamos, teniendo como metas convertirse en una empresa de 
+            soporte y soluciones para sus clientes, siguiendo la expansión se instalan nuestras oficinas en Santiago 
+            de Chile para ofrecer nuestros servicios a una diversidad de clientes existentes teniendo como principal 
+            objetivo la satisfacción y establecer negocios ganar ganar.
+        </p>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+      <a href="#home" class="w3-button w3-red"><i class="fa fa-arrow-up w3-margin-right"></i>Volver Arriba</a>
+      <div class="w3-container w3-row w3-center w3-black w3-padding-64">
+        <div class="w3-third w3-margin-top">
+          <span><b>ATENCIÓN AL CLIENTE</b></span>
+          <br>Póngase en contacto con Nosotros
+          <br><a href="https://wa.me/51959593083" target="_blank" class="link">WhatsApp</a> <!--Link a whatsapp-->
+          <br><a href="tel:+56949116797" class="link">Teléfono</a> <!--Link a tlf/llamada-->
+          <br><a href="mailto:ventas@as-mid.com " target="_blank" class="link">Email</a> <!--Link a email-->
+          <br><a href="https://www.google.com/maps/place/Oficina+219,+Av.+Almte.+Miguel+Grau+1350,+Lima+15063,+Per%C3%BA/@-12.1381855,-77.0268179,16z/data=!4m5!3m4!1s0x9105b7e4d672eba3:0xde25355c63513748!8m2!3d-12.1381879!4d-77.0222876?hl=es" target="_blank" class="link">Ubicación</a> <!--Link a mapa-->
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>SERVICIOS</b></span>
+          <br><a href="rastreo.html" class="link">Rastreo</a>
+          <br><a href="servicios.html#transporte" class="link">Transporte y Carga</a>
+          <br><a href="servicios.html#consultoria" class="link">Consultoría</a>
+          <br><a href="rastreo.html#monitoreo" class="link">Monitoreo</a>
+          <br><a href="servicios.html#control-de-flota" class="link">Control de flota</a>
+          <br><a href="servicios.html#soluciones-integrales" class="link">Soluciones integrales</a>
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>NOSOTROS</b></span>
+          <br><a href="assets/documents/politica-de-calidad.pdf" target="_blank" class="link">Políticas de calidad</a>
+          <br><a href="nosotros.html" class="link">Quiénes somos</a>
+        </div>
+      </div>
+
+      <!--Social media-->
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+
+      <small>As-Mid Spa &copy; Todos los Derechos Reservados</small>
+    </footer>
+  
+       
+      <script>
+            
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    let mySidebar = document.getElementById("mySidebar");
+    
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+    
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+      </script>
+ </body>
+</html>

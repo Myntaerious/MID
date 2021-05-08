@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+   <title>as-mid</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="assets/stylesheets/w3.css">
+   <link rel="stylesheet" href="assets/fonts/fonts.css">
+   <script src="https://kit.fontawesome.com/d56031a864.js" crossorigin="anonymous"></script>
+   <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+    .container-padding{
+      padding: 128px 16px;
+    }
+    /* Full height image header */
+    .bgimg-contacto {
+      background-position: center;
+      background-size: cover;
+      background-image: url("assets/images/closeup-of-smartphone-with-gps-application.jpg");
+      min-height: 60%;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+    
+    .link{
+      text-decoration: none;
+    }
+    .link:hover{
+      text-decoration: underline;
+    }
+    .smargin{
+      margin: 2.5em;
+    }
+
+    .card{
+      transition: all .05s linear;
+    }
+
+    .emphasis{
+      transform: scale(1.1);
+      border-color: gray;
+      box-shadow: 0 0 1rem gray;
+      cursor:pointer;
+    }
+
+    .w3-tooltip:hover .w3-text{
+      position:absolute;
+      left:0;
+      top:115px;
+      background-color: white;
+      padding: 5px 16px;
+      width:100%;
+      height: 60px;
+     /* text-overflow:;*/
+    }
+    .panel{
+      padding:0 16px;
+      margin-top:0;
+    }
+    h5{
+      font-weight: 700;
+    }
+   </style>
+ </head>
+
+ <body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button w3-wide"><img src="assets/logos/logo-nuevo-sin-spa.png" alt="as-mid logo" class="w3-image" style="width:100%; max-width:150px"></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-margin-top w3-hide-small w3-hide-medium">
+          <a href="nosotros.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-user"></i> NOSOTROS</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-th"></i> SERVICIOS</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="rastreo.html" class="w3-bar-item w3-button w3-hover-indigo">Rastreo</a>
+              <a href="servicios.html" class="w3-bar-item w3-button w3-hover-indigo">Otros Servicios</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-envelope"></i> CONTACTO</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="http://rastreo.app.as-mid.cl/" class="w3-bar-item w3-button w3-hover-indigo">Cliente</a>
+              <a href="https://www.perfildeconduccion.com/web/" class="w3-bar-item w3-button w3-hover-indigo">Perfil de Conducción</a>
+              <a href="http://gps.as-mid.com/" class="w3-bar-item w3-button w3-hover-indigo">Nueva Plataforma</a>
+              <a href="admin.html" class="w3-bar-item w3-button w3-hover-indigo">Administrador</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-margin-top w3-hide-large w3-hover-indigo" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-red w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Cerrar ×</a>
+      <a href="nosotros.html" onclick="w3_close()" class="w3-bar-item w3-button">NOSOTROS</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-th"></i> SERVICIOS</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="rastreo.html" onclick="w3_close()" class="w3-bar-item w3-button">Rastreo</a>
+          <a href="servicios.html" onclick="w3_close()" class="w3-bar-item w3-button">Otros Servicios</a>
+        </div>
+      </div>
+      <a href="contacto.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="http://rastreo.app.as-mid.cl/" onclick="w3_close()" class="w3-bar-item w3-button">Cliente</a>
+          <a href="https://www.perfildeconduccion.com/web/" onclick="w3_close()" class="w3-bar-item w3-button">Perfil de Conducción</a>
+          <a href="http://gps.as-mid.com/" onclick="w3_close()" class="w3-bar-item w3-button">Nueva Plataforma</a>
+          <a href="admin.html" onclick="w3_close()" class="w3-bar-item w3-button">Administrador</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero-->
+    <header class="bgimg-contacto w3-display-container w3-grayscale-min" id="home">
+      <div class="w3-display-middle w3-text-white" style="padding: 64px; margin-top: 24px;">
+        <span class="w3-jumbo w3-hide-small"><b>Contacto</b></span>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium"><b>Contacto</b></span>
+      </div> 
+    </header>
+    
+    <!--Canales de contacto-->
+    <div class="w3-container container-padding">
+        <h3 class="w3-center"><b>Contamos con múltiples canales de contacto</b></h3>
+        <p class="w3-center">ATENCIÓN PERSONALIZADA EN LOS SIGUIENTES CANALES</p>
+        <div class="w3-row-padding w3-center" style="margin-top:64px">
+          <div class="w3-third">
+            <i class="fa fa-map-marker w3-margin-bottom w3-jumbo w3-center w3-text-red"></i>
+            <p class="w3-large"><b>Dirección</b></p>
+            <p>Av. Almirante Miguel Grau 1350, Barranco, Oficina 219. Lima, Perú</p>
+          </div>
+          <div class="w3-third">
+            <i class="fa fa-whatsapp w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+            <p class="w3-large"><b>Whatsapp</b></p>
+            <p><a href="https://wa.me/51959593083" target="_blank" class="link"> +51 959 593 083</a>  <br>  <a href="https://wa.me/51957081673" target="_blank" class="link">+51 957 081 673</a></p>
+          </div>
+          <div class="w3-third">
+            <i class="fa fa-envelope w3-margin-bottom w3-jumbo w3-text-indigo"></i>
+            <p class="w3-large"><b>Email</b></p>
+            <p><a href="mailto:ventas@as-mid.com " target="_blank" class="link">ventas@as-mid.com</a>  <br>  <a href="mailto:miguel.rodriguez@as-mid.com" target="_blank" class="link">miguel.rodriguez@as-mid.com</a></p>
+          </div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.619257358762!2d-77.02447628559663!3d-12.13818264691166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b7e4d672eba3%3A0xde25355c63513748!2sOficina%20219%2C%20Av.%20Almte.%20Miguel%20Grau%201350%2C%20Lima%2015063%2C%20Per%C3%BA!5e0!3m2!1ses!2sve!4v1615303083488!5m2!1ses!2sve" height="450px" class="w3-greyscale-min" style="border:0;width:100%;margin-top:48px" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    
+    <!--Escribenos un mensaje-->
+    <div class="w3-container w3-light-grey container-padding">
+      <h3 class="w3-center"><b>Escríbenos un mensaje</b></h3>
+      <p class="w3-center">ESTAMOS LISTOS PARA RESPONDER CUALQUIER PREGUNTA</p>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-border w3-hover-border-blue" type="text" placeholder="Nombre" required name="Nombre"></p>
+        <p><input class="w3-input w3-border w3-hover-border-blue" type="email" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-border w3-hover-border-blue" type="text" placeholder="Asunto" required name="Asunto"></p>
+        <p><input class="w3-input w3-border w3-hover-border-blue" type="text" placeholder="Mensaje" required name="Mensaje"></p>
+        <p>
+          <button class="w3-button w3-indigo w3-hover-indigo w3-hover-shadow" type="submit">
+            <i class="fa fa-paper-plane"></i> ENVIAR MENSAJE
+          </button>
+        </p>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+      <a href="#home" class="w3-button w3-red"><i class="fa fa-arrow-up w3-margin-right"></i>Volver Arriba</a>
+      <div class="w3-container w3-row w3-center w3-black w3-padding-64">
+        <div class="w3-third w3-margin-top">
+          <span><b>ATENCIÓN AL CLIENTE</b></span>
+          <br>Póngase en contacto con Nosotros
+          <br><a href="https://wa.me/51959593083" target="_blank" class="link">WhatsApp</a> <!--Link a whatsapp-->
+          <br><a href="tel:+56949116797" class="link">Teléfono</a> <!--Link a tlf/llamada-->
+          <br><a href="mailto:ventas@as-mid.com " target="_blank" class="link">Email</a> <!--Link a email-->
+          <br><a href="https://www.google.com/maps/place/Oficina+219,+Av.+Almte.+Miguel+Grau+1350,+Lima+15063,+Per%C3%BA/@-12.1381855,-77.0268179,16z/data=!4m5!3m4!1s0x9105b7e4d672eba3:0xde25355c63513748!8m2!3d-12.1381879!4d-77.0222876?hl=es" target="_blank" class="link">Ubicación</a> <!--Link a mapa-->
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>SERVICIOS</b></span>
+          <br><a href="rastreo.html" class="link">Rastreo</a>
+          <br><a href="servicios.html#transporte" class="link">Transporte y Carga</a>
+          <br><a href="servicios.html#consultoria" class="link">Consultoría</a>
+          <br><a href="rastreo.html#monitoreo" class="link">Monitoreo</a>
+          <br><a href="servicios.html#control-de-flota" class="link">Control de flota</a>
+          <br><a href="servicios.html#soluciones-integrales" class="link">Soluciones integrales</a>
+        </div>
+        <div class="w3-third w3-margin-top">
+          <span><b>NOSOTROS</b></span>
+          <br><a href="assets/documents/politica-de-calidad.pdf" target="_blank" class="link">Políticas de calidad</a>
+          <br><a href="nosotros.html" class="link">Quiénes somos</a>
+        </div>
+      </div>
+
+      <!--Social media-->
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+
+      <small>As-Mid Spa &copy; Todos los Derechos Reservados</small>
+    </footer>
+  
+       
+      <script>
+            
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    let mySidebar = document.getElementById("mySidebar");
+    
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+    
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+      </script>
+ </body>
+</html>
