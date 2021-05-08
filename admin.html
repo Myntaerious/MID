@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="assets/stylesheets/w3.css">
    <link rel="stylesheet" href="assets/fonts/fonts.css">
-   <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+   <script src="https://kit.fontawesome.com/d56031a864.js" crossorigin="anonymous"></script>
    <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     
@@ -14,7 +14,7 @@
       height: 100%;
       line-height: 1.8;
     }
-    
+
     /* Full height image header */
     .bgimg-1 {
       background-position: center;
@@ -39,7 +39,6 @@
     }
 
     .panel{
-        padding: 48px; 
         background-color: rgba(255,255,255,0.6);
     }
     </style>
@@ -53,10 +52,15 @@
         <a href="index.html" class="w3-bar-item w3-button w3-wide"><img src="assets/logos/logo-nuevo-sin-spa.png" alt="as-mid logo" class="w3-image" style="width:100%; max-width:150px"></a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-margin-top w3-hide-small w3-hide-medium">
-          <a href="#nosotros" class="w3-bar-item w3-button w3-hover-indigo">NOSOTROS</a>
-          <a href="#equipo" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-user"></i> EQUIPO</a>
-          <a href="#servicios" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-th"></i> SERVICIOS</a>
-          <a href="#contacto" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-envelope"></i> CONTACTO</a>
+          <a href="nosotros.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-user"></i> NOSOTROS</a>
+          <div class="w3-dropdown-hover">
+            <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-th"></i> SERVICIOS</a>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="rastreo.html" class="w3-bar-item w3-button w3-hover-indigo">Rastreo</a>
+              <a href="servicios.html" class="w3-bar-item w3-button w3-hover-indigo">Otros Servicios</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="w3-bar-item w3-button w3-hover-indigo"><i class="fa fa-envelope"></i> CONTACTO</a>
           <div class="w3-dropdown-hover">
             <a href="#" class="w3-button w3-hover-indigo"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
             <div class="w3-dropdown-content w3-bar-block w3-border">
@@ -78,68 +82,78 @@
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-red w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
       <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Cerrar ×</a>
-      <a href="#nosotros" onclick="w3_close()" class="w3-bar-item w3-button">NOSOTROS</a>
-      <a href="#equipo" onclick="w3_close()" class="w3-bar-item w3-button">EQUIPO</a>
-      <a href="#servicios" onclick="w3_close()" class="w3-bar-item w3-button">SERVICIOS</a>
-      <a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
-      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">INICIAR SESIÓN</a>
+      <a href="nosotros.html" onclick="w3_close()" class="w3-bar-item w3-button">NOSOTROS</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-th"></i> SERVICIOS</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="rastreo.html" onclick="w3_close()" class="w3-bar-item w3-button">Rastreo</a>
+          <a href="servicios.html" onclick="w3_close()" class="w3-bar-item w3-button">Otros Servicios</a>
+        </div>
+      </div>
+      <a href="contacto.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
+      <div class="w3-dropdown-hover">
+        <a href="#" class="w3-button"><i class="fa fa-sign-in-alt"></i> INICIAR SESION</a>
+        <div class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="http://rastreo.app.as-mid.cl/" onclick="w3_close()" class="w3-bar-item w3-button">Cliente</a>
+          <a href="https://www.perfildeconduccion.com/web/" onclick="w3_close()" class="w3-bar-item w3-button">Perfil de Conducción</a>
+          <a href="http://gps.as-mid.com/" onclick="w3_close()" class="w3-bar-item w3-button">Nueva Plataforma</a>
+          <a href="admin.html" onclick="w3_close()" class="w3-bar-item w3-button">Administrador</a>
+        </div>
+      </div>
     </nav>
 
-    <div class="bgimg-1 w3-display-container w3-row w3-center w3-grayscale-min">
-        <div class="w3-display-middle panel">
+    <div class="bgimg-1 w3-container w3-grayscale-min" id="home" style="padding: 220px 16px 128px 16px;">
+          <div class="w3-center w3-panel panel" style="margin:auto; width:80%;">
             <form action="https://www.as-mid.com/wp-login.php?action=postpass" method="post">
-                <p class="w3-text-indigo w3-xlarge bold">El contenido está protegido por clave. Para verlo por favor ingresa tu clave abajo:</p>
-                <p class="w3-text-indigo w3-large bold">
-                    <label for="pwbox-3913">Clave: 
-                        <input name="post_password" id="pwbox-3913" type="password" class="w3-input w3-border w3-hover-border-blue">
-                    </label> 
-                    <input type="submit" name="Submit" value="Enviar" class="w3-button w3-red w3-hover-indigo w3-margin-top">
-                </p>
-            </form>
-        </div>
+              <p class="w3-text-indigo w3-xlarge bold">El contenido está protegido por clave. Para verlo por favor ingresa tu clave abajo:</p>
+              <p class="w3-text-indigo w3-large bold">
+                  <label for="pwbox-3913">Clave: 
+                      <input name="post_password" id="pwbox-3913" type="password" class="w3-input w3-border w3-hover-border-blue">
+                  </label> 
+                  <input type="submit" name="Submit" value="Enviar" class="w3-button w3-red w3-hover-indigo w3-margin-top">
+              </p>
+          </form>
+          </div>
     </div>
 
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-64">
-        <a href="#home" class="w3-button w3-red"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-        <div class="w3-container w3-row w3-center w3-black w3-padding-64">
-          <div class="w3-third w3-margin-top">
-            <span><b>ATENCIÓN AL CLIENTE</b></span>
-            <br>Póngase en contacto con Nosotros
-            <br><a href="#" class="link">WhatsApp</a> <!--Link a whatsapp-->
-            <br><a href="#" class="link">Teléfono</a> <!--Link a tlf-->
-            <br><a href="#" class="link">Email</a> <!--Link a email-->
-            <br><a href="#" class="link">Ubicación</a> <!--Link a mapa-->
-          </div>
-          <div class="w3-third w3-margin-top">
-            <span><b>SERVICIOS</b></span>
-            <br><a href="#" class="link">Rastreo</a>
-            <br><a href="#" class="link">Transporte</a>
-            <br><a href="#" class="link">Carga</a>
-            <br><a href="#" class="link">Consultoría</a>
-            <br><a href="#" class="link">Monitoreo</a>
-            <br><a href="#" class="link">Control de flota</a>
-            <br><a href="#" class="link">Soluciones integrales</a>
-          </div>
-          <div class="w3-third w3-margin-top">
-            <span><b>NOSOTROS</b></span>
-            <br><a href="#" class="link">Políticas de calidad</a>
-            <br><a href="#" class="link">Quiénes somos</a>
-          </div>
+      <a href="#home" class="w3-button w3-red"><i class="fa fa-arrow-up w3-margin-right"></i>Volver Arriba</a>
+      <div class="w3-container w3-row w3-center w3-black w3-padding-64">
+        <div class="w3-third w3-margin-top">
+          <span><b>ATENCIÓN AL CLIENTE</b></span>
+          <br>Póngase en contacto con Nosotros
+          <br><a href="https://wa.me/51959593083" target="_blank" class="link">WhatsApp</a> <!--Link a whatsapp-->
+          <br><a href="tel:+56949116797" class="link">Teléfono</a> <!--Link a tlf/llamada-->
+          <br><a href="mailto:ventas@as-mid.com " target="_blank" class="link">Email</a> <!--Link a email-->
+          <br><a href="https://www.google.com/maps/place/Oficina+219,+Av.+Almte.+Miguel+Grau+1350,+Lima+15063,+Per%C3%BA/@-12.1381855,-77.0268179,16z/data=!4m5!3m4!1s0x9105b7e4d672eba3:0xde25355c63513748!8m2!3d-12.1381879!4d-77.0222876?hl=es" target="_blank" class="link">Ubicación</a> <!--Link a mapa-->
         </div>
-    
-        <!--Social media-->
-        <div class="w3-xlarge w3-section">
-          <i class="fa fa-facebook-official w3-hover-opacity"></i>
-          <i class="fa fa-instagram w3-hover-opacity"></i>
-          <i class="fa fa-snapchat w3-hover-opacity"></i>
-          <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-          <i class="fa fa-twitter w3-hover-opacity"></i>
-          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <div class="w3-third w3-margin-top">
+          <span><b>SERVICIOS</b></span>
+          <br><a href="rastreo.html" class="link">Rastreo</a>
+          <br><a href="servicios.html#transporte" class="link">Transporte y Carga</a>
+          <br><a href="servicios.html#consultoria" class="link">Consultoría</a>
+          <br><a href="rastreo.html#monitoreo" class="link">Monitoreo</a>
+          <br><a href="servicios.html#control-de-flota" class="link">Control de flota</a>
+          <br><a href="servicios.html#soluciones-integrales" class="link">Soluciones integrales</a>
         </div>
-    
-        <small>As-Mid Spa &copy; Todos los Derechos Reservados</small>
-      </footer>
+        <div class="w3-third w3-margin-top">
+          <span><b>NOSOTROS</b></span>
+          <br><a href="assets/documents/politica-de-calidad.pdf" target="_blank" class="link">Políticas de calidad</a>
+          <br><a href="nosotros.html" class="link">Quiénes somos</a>
+        </div>
+      </div>
+
+      <!--Social media-->
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+
+      <small>As-Mid Spa &copy; Todos los Derechos Reservados</small>
+    </footer>
     
        
       <script>
